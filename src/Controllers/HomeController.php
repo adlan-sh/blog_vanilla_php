@@ -23,7 +23,7 @@ class HomeController
         $data = array_map(function (Category $category) {
             return [
                 'category' => $category,
-                'posts' => $this->postService->getLatestByCategory($category->getId(), 3),
+                'posts' => $this->postService->getLatestByCategory($category->id, 3),
             ];
         }, $categories);
 
