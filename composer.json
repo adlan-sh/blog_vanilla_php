@@ -1,0 +1,14 @@
+{
+    "name": "ash/blog_vanilla_php",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Adlan Shamavov"
+        }
+    ],
+    "require": {}
+}
