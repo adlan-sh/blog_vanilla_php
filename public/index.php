@@ -1,8 +1,8 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\Core\Database;
-use App\Core\Router;
+use App\Core\Database\Database;
+use App\Core\Routing\Router;
 use App\Core\View;
 use Dotenv\Dotenv;
 
