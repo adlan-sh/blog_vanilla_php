@@ -1,0 +1,25 @@
+CREATE TABLE categories (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE posts (
+   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+   title VARCHAR(255) NOT NULL,
+   image VARCHAR(255) DEFAULT NULL,
+   description VARCHAR(500) NOT NULL,
+   content TEXT NOT NULL,
+   views INT UNSIGNED DEFAULT 0,
+   published_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   INDEX (published_at),
+   INDEX (views)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE post_category (
+   post_id INT UNSIGNED NOT NULL,
+   category_id INT UNSIGNED NOT NULL,
+   PRIMARY KEY (post_id, category_id),
+   FOREIGN KEY (post_id) REFERENCES posts(id),
+   FOREIGN KEY (category_id) REFERENCES categories(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
