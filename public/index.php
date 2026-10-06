@@ -1,9 +1,15 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
+use App\Controllers\HomeController;
+use App\Core\Database\Connection;
 use App\Core\Database\Database;
 use App\Core\Routing\Router;
 use App\Core\View;
+use App\Repositories\CategoryRepository;
+use App\Repositories\PostRepository;
+use App\Services\CategoryService;
+use App\Services\PostService;
 use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
@@ -17,5 +23,17 @@ $db = Database::connect($dbConfig['db']);
 View::init($smartyConfig['smarty']);
 
 $router = new Router();
+
+$connection = new Connection();
+
+$categoryRepository = new CategoryRepository($connection);
+$categoryService = new CategoryService($categoryRepository);
+
+$postRepository = new PostRepository($connection);
+$postService = new PostService($postRepository);
+
+$homeController = new HomeController($categoryService, $postService);
+
+$router->get('/', fn() => $homeController->index());
 
 $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);

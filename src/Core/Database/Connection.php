@@ -29,4 +29,16 @@ class Connection
             throw new DatabaseException($e->getMessage());
         }
     }
+
+    public function fetchOne(string $sql, array $params = []): ?array
+    {
+        $row = $this->query($sql, $params)->fetch();
+
+        return $row === false ? null : $row;
+    }
+
+    public function fetchAll(string $sql, array $params = []): array
+    {
+        return $this->query($sql, $params)->fetchAll();
+    }
 }

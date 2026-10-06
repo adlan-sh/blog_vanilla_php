@@ -2,8 +2,8 @@
 
 return [
     'smarty' => [
-        'template_dir' => __DIR__ . '../templates',
-        'compile_dir'  => __DIR__ . '../var/compile',
-        'cache_dir'    => __DIR__ . '../var/cache',
+        'template_dir' => dirname(__DIR__) . '/templates',
+        'compile_dir' => dirname(__DIR__) . '/var/compile',
+        'cache_dir' => dirname(__DIR__) . '/var/cache',
     ]
 ];
