@@ -15,7 +15,7 @@ class Database
         if (self::$pdo === null) {
             $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['name']};charset=utf8mb4";
 
-            self::$pdo = new PDO($dsn, $config['user'], $config['pass']);
+            self::$pdo = new PDO($dsn, $config['user'], $config['password']);
         }
         return self::$pdo;
     }

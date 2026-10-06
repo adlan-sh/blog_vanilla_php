@@ -2,10 +2,10 @@
 
 return [
     'db' => [
-        'host' => getenv('DB_HOST'),
-        'port' => getenv('DB_PORT'),
-        'name' => getenv('DB_NAME'),
-        'user' => getenv('DB_USER'),
-        'password' => getenv('DB_PASSWORD'),
+        'host' => $_ENV['DB_HOST'],
+        'port' => $_ENV['DB_PORT'],
+        'name' => $_ENV['DB_NAME'],
+        'user' =>$_ENV['DB_USER'],
+        'password' => $_ENV['DB_PASSWORD'],
     ]
 ];
