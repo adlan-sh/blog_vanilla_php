@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\Category;
 use App\Repositories\CategoryRepository;
 
 class CategoryService
@@ -15,8 +16,14 @@ class CategoryService
         return $this->categoryRepository->getAll();
     }
 
-    public function getAllWithLatestPosts(int $count): array
+    public function getById(int $id): Category
     {
-        return $this->categoryRepository->getAllWithLatestPosts($count);
+        $category = $this->categoryRepository->find($id);
+
+        if ($category === null) {
+            // not found
+        }
+
+        return $category;
     }
 }

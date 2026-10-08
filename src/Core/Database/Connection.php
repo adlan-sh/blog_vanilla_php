@@ -41,4 +41,9 @@ class Connection
     {
         return $this->query($sql, $params)->fetchAll();
     }
+
+    public function fetchColumn(string $sql, array $params = []): mixed
+    {
+        return $this->query($sql, $params)->fetchColumn();
+    }
 }

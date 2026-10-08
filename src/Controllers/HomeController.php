@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Core\View;
+use App\Core\MVC\View;
 use App\Models\Category;
 use App\Services\CategoryService;
 use App\Services\PostService;
