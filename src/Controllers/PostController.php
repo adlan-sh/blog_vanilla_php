@@ -15,12 +15,8 @@ class PostController
     {
         $post = $this->postService->getById($id);
 
-        #$this->postService->incrementViews($id);
-        #$post['views']++;
-
         return View::render('post.tpl', [
             'post' => $post,
-            #'similar' => $this->postService->similar($id, 3),
         ]);
     }
 }

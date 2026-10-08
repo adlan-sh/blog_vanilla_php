@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\NotFoundException;
 use App\Models\Category;
 use App\Repositories\CategoryRepository;
 
@@ -21,7 +22,7 @@ class CategoryService
         $category = $this->categoryRepository->find($id);
 
         if ($category === null) {
-            // not found
+            throw new NotFoundException();
         }
 
         return $category;

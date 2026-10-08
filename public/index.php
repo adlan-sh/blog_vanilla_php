@@ -6,6 +6,7 @@ use App\Controllers\HomeController;
 use App\Controllers\PostController;
 use App\Core\Database\Connection;
 use App\Core\Database\Database;
+use App\Core\Exception\ExceptionHandler;
 use App\Core\MVC\View;
 use App\Core\Routing\Router;
 use App\Repositories\CategoryRepository;
@@ -19,6 +20,8 @@ $dotenv->load();
 
 $dbConfig = require __DIR__ . '/../config/db.php';
 $smartyConfig = require __DIR__ . '/../config/smarty.php';
+
+(new ExceptionHandler())->register();
 
 $db = Database::connect($dbConfig['db']);
 

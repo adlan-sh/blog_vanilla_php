@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\NotFoundException;
 use App\Models\Post;
 use App\Repositories\PostRepository;
 
@@ -26,7 +27,7 @@ class PostService
         $post = $this->postRepository->find($id);
 
         if ($post === null) {
-            // not found
+            throw new NotFoundException();
         }
 
         return $post;
