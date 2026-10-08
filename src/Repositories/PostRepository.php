@@ -13,7 +13,6 @@ class PostRepository
 
     public function find(int $id): ?Post
     {
-        // 1. Основной запрос — пост + список его категорий
         $row = $this->db->fetchOne("
         SELECT
             p.*,

@@ -1,0 +1,101 @@
+$primary: #2563eb;
+$text: #1f2937;
+$muted: #6b7280;
+$bg: #f9fafb;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: $text;
+  background: $bg;
+  line-height: 1.6;
+}
+
+.site-header {
+  background: #fff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  .logo { font-size: 1.25rem; font-weight: 700; color: $primary; text-decoration: none; }
+}
+
+.container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+
+.category-block {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.post-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; }
+  h3 { margin: .5rem 0; font-size: 1.05rem; a { color: $text; text-decoration: none; } }
+  p { color: $muted; font-size: .9rem; flex: 1; }
+  .meta { display: flex; justify-content: space-between; color: $muted; font-size: .85rem; }
+}
+
+.btn {
+  display: inline-block;
+  background: $primary;
+  color: #fff;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  &:hover { background: darken($primary, 8%); }
+}
+
+.sort-bar {
+  margin: 1rem 0;
+  a {
+    margin-right: .75rem;
+    color: $primary;
+    text-decoration: none;
+    &.active { font-weight: 700; text-decoration: underline; }
+  }
+}
+
+.pagination {
+  display: flex;
+  gap: .4rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+  a {
+    padding: .4rem .8rem;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    text-decoration: none;
+    color: $text;
+    &.active { background: $primary; color: #fff; border-color: $primary; }
+  }
+}
+
+.post-full {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  .post-cover { width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; }
+  .lead { font-size: 1.1rem; color: $muted; }
+  .meta { display: flex; gap: 1rem; color: $muted; margin: 1rem 0; }
+}
+
+.similar { margin-top: 2rem; }
+.back { display: inline-block; margin-bottom: 1rem; color: $primary; text-decoration: none; }
+.site-footer { text-align: center; padding: 2rem; color: $muted; }
